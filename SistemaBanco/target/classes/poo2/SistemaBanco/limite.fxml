@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="338.0" prefWidth="544.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poo2.SistemaBanco.LimiteController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="338.0" prefWidth="544.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poo2.SistemaBanco.Controllers.LimiteController">
    <children>
       <Label prefHeight="113.0" prefWidth="313.0" text="Ajuste de limite" textAlignment="CENTER">
          <font>
@@ -18,7 +18,7 @@
             <Insets left="15.0" />
          </VBox.margin>
       </Label>
-      <Slider blockIncrement="0.0" majorTickUnit="100.0" max="500.0" prefHeight="105.0" prefWidth="560.0" showTickLabels="true" value="400.0">
+      <Slider blockIncrement="0.0" majorTickUnit="100.0" max="500.0" prefHeight="105.0" prefWidth="560.0" showTickLabels="true" showTickMarks="true" value="400.0">
          <VBox.margin>
             <Insets left="20.0" right="20.0" />
          </VBox.margin>

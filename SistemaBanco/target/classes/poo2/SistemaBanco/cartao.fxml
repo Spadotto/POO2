@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="384.0" prefWidth="399.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poo2.SistemaBanco.CartaoController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="384.0" prefWidth="399.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poo2.SistemaBanco.Controllers.CartaoController">
    <children>
-      <Label text="Label">
+      <Label text="Cartão Virtual">
          <font>
             <Font name="Georgia" size="29.0" />
          </font>
@@ -19,7 +19,7 @@
       </Label>
       <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="414.0">
          <children>
-            <Label text="6666">
+            <Label fx:id="lblcartao" prefHeight="21.0" prefWidth="263.0" text="6666 6666 6666 6666">
                <font>
                   <Font name="Georgia" size="18.0" />
                </font>
@@ -27,25 +27,9 @@
                   <Insets right="10.0" />
                </HBox.margin>
             </Label>
-            <Label text="6666">
+            <Label fx:id="confidence" visible="false">
                <font>
-                  <Font name="Georgia" size="18.0" />
-               </font>
-               <HBox.margin>
-                  <Insets right="10.0" />
-               </HBox.margin>
-            </Label>
-            <Label text="6666">
-               <font>
-                  <Font name="Georgia" size="18.0" />
-               </font>
-               <HBox.margin>
-                  <Insets right="10.0" />
-               </HBox.margin>
-            </Label>
-            <Label text="6666">
-               <font>
-                  <Font name="Georgia" size="18.0" />
+                  <Font size="1.0" />
                </font>
             </Label>
          </children>
@@ -63,7 +47,7 @@
       </Label>
       <HBox prefHeight="50.0" prefWidth="444.0">
          <children>
-            <Label text="Nome">
+            <Label fx:id="txtnome" text="Nome">
                <font>
                   <Font name="Georgia" size="18.0" />
                </font>
@@ -71,7 +55,7 @@
                   <Insets left="20.0" right="10.0" top="10.0" />
                </HBox.margin>
             </Label>
-            <Label text="Sobrenome">
+            <Label fx:id="txtsobrenome" text="Sobrenome">
                <font>
                   <Font name="Georgia" size="18.0" />
                </font>
@@ -106,7 +90,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="48.0" prefWidth="425.0">
          <children>
-            <Label text="12/25">
+            <Label fx:id="txtdatavenc" text="12/25">
                <HBox.margin>
                   <Insets left="20.0" right="10.0" />
                </HBox.margin>
@@ -114,7 +98,7 @@
                   <Font name="Georgia" size="18.0" />
                </font>
             </Label>
-            <Label text="666">
+            <Label fx:id="txtcvv" text="666">
                <HBox.margin>
                   <Insets left="200.0" />
                </HBox.margin>

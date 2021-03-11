@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="188.0" prefWidth="263.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poo2.SistemaBanco.LoginController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="188.0" prefWidth="263.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poo2.SistemaBanco.Controllers.LoginController">
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" text="Login" textAlignment="CENTER" VBox.vgrow="ALWAYS">
          <font>
@@ -58,7 +58,7 @@
                   <Font name="Georgia" size="17.0" />
                </font>
             </Label>
-            <PasswordField fx:id="senha" prefHeight="36.0" prefWidth="175.0" HBox.hgrow="ALWAYS">
+            <PasswordField fx:id="txtsenha" prefHeight="36.0" prefWidth="175.0" HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
