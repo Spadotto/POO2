@@ -62,6 +62,9 @@ public class ConnectionDB {
 		new ConveniosDAO().persist(e);
 		Convenios f = new Convenios("unimed");
 		new ConveniosDAO().persist(f);
+		
+		u.getConvenio().add(e);
+		new UsuarioDAO().persist(u);
 	
 	}
 

@@ -1,6 +1,8 @@
 package poo2.SistemaBanco.Controllers;
 
 import java.io.IOException;
+import java.util.Random;
+
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +19,8 @@ import poo2.SistemaBanco.DataBase.UsuarioDAO;
 
 public class CadastroController {
 
+	Random rand = new Random();
+	
 	@FXML
     private TextField txtnome;
 
@@ -63,7 +67,10 @@ public class CadastroController {
     	String endereco = txtend.getText();
     	String cidade = txtcidade.getText();
 		String email = txtemail.getText();
-		Cartao cartao = new Cartao("123452545254");
+		String cartaon = String.valueOf(rand.nextInt(999999999 - 100000000) + 100000000);
+		String cvv = String.valueOf(rand.nextInt(999 - 100) + 100);
+		String data = String.valueOf(rand.nextInt(9999 - 1000) + 1000);
+		Cartao cartao = new Cartao(cartaon, cvv, data, 0, 100.00);
 
 		if (cpf.isBlank()) {
 			Alert alert = poo2.SistemaBanco.AlertUtil.error("Erro!", "Erro!", "Digite o CPF!");

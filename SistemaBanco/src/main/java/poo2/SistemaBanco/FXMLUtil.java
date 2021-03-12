@@ -8,6 +8,7 @@ import javafx.scene.control.Alert.AlertType;
 import poo2.SistemaBanco.Controllers.CartaoController;
 import poo2.SistemaBanco.Controllers.ConfigController;
 import poo2.SistemaBanco.Controllers.ConvController;
+import poo2.SistemaBanco.Controllers.LimiteController;
 import poo2.SistemaBanco.Controllers.MainController;
 
 public class FXMLUtil {
@@ -15,6 +16,7 @@ public class FXMLUtil {
 	private static CartaoController cartaoController = null;
 	private static ConfigController configController = null;
 	private static ConvController convenioController = null;
+	private static LimiteController limiteController = null;
 
 	public static Scene loadScene(String fxml) {
 		try {
@@ -36,6 +38,10 @@ public class FXMLUtil {
 				convenioController = fxmlLoader.getController();
 			else
 				convenioController = null;
+			if (fxmlLoader.getController() instanceof LimiteController)
+				limiteController = fxmlLoader.getController();
+			else
+				limiteController = null;
 			return scene;
 		} catch (IOException eIO) {
 			Alert alert = new Alert(AlertType.ERROR);
@@ -62,6 +68,10 @@ public class FXMLUtil {
 	
 	public static ConvController getConvController() {
 		return convenioController;
+	}
+	
+	public static LimiteController getLimiteController() {
+		return limiteController;
 	}
 
 }

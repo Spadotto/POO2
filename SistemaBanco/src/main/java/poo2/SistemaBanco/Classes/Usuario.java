@@ -74,8 +74,8 @@ public class Usuario {
 		return convenios;
 	}
 
-	public void setGames(List<Convenios> games) {
-		this.convenios = games;
+	public void setConvenios(List<Convenios> convs) {
+		this.convenios = convs;
 	}
 
 	public String getCpf() {

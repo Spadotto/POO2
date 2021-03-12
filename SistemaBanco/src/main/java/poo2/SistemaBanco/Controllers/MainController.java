@@ -63,7 +63,7 @@ public class MainController {
     void ChamarConvenio(ActionEvent event) throws IOException {
 		App.setRoot("convenio");
 		ConvController controller = FXMLUtil.getConvController();
-		controller.UpdateConvs();
+		controller.UpdateConvs(user);
     }
     
     @FXML
@@ -82,14 +82,22 @@ public class MainController {
     @FXML
     void AjustarLimite(ActionEvent event) throws IOException {
     	App.setRoot("limite");
+    	LimiteController controller = FXMLUtil.getLimiteController();
+		controller.UserInfo(user);
     }
     
     @FXML
     void CriarCartao(ActionEvent event) throws IOException {
-		App.setRoot("cartao");
-		CartaoController controller = FXMLUtil.getCartaoController();
-		controller.setNumConta(d);
-		controller.setDados(c);
+    	if(user.getCartao().getNumCartao().isEmpty()) {
+    		Alert alert = poo2.SistemaBanco.AlertUtil.error("Erro!", "Erro!", "Não foi possível gerar boleto!");
+    		alert.show();
+    	}else {
+    		App.setRoot("cartao");
+			CartaoController controller = FXMLUtil.getCartaoController();
+			controller.setNumConta(d);
+			controller.setDados(c);
+    	}
+		
     }
 
     @FXML

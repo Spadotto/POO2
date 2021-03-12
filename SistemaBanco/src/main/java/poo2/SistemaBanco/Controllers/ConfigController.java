@@ -1,7 +1,6 @@
 package poo2.SistemaBanco.Controllers;
 
 import javax.persistence.EntityManager;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -10,7 +9,9 @@ import javafx.scene.control.TextField;
 import poo2.SistemaBanco.App;
 import poo2.SistemaBanco.FXMLUtil;
 import poo2.SistemaBanco.Classes.Usuario;
+import poo2.SistemaBanco.DataBase.CartaoDAO;
 import poo2.SistemaBanco.DataBase.ConnectionDB;
+import poo2.SistemaBanco.DataBase.UsuarioDAO;
 
 public class ConfigController {
 
@@ -107,6 +108,7 @@ public class ConfigController {
 		person.setEmail(email);
 		person.setEndereco(endereco);
 		person.setSenha(user.getSenha());
+		person.setConvenios(user.getConvenio());
 		em.getTransaction().commit();
 		
 		user = person;
@@ -117,7 +119,13 @@ public class ConfigController {
 
     @FXML
     void ApagarUsuário(ActionEvent event) {
-
+		Usuario user = new UsuarioDAO().get(txtcpf.getText());
+		UsuarioDAO u = new UsuarioDAO();
+		CartaoDAO c = new CartaoDAO();
+		c.remove(user.getCartao());
+		u.remove(user);
+		App.setRoot("login");
+		App.changeResizable();
     }
 
     @FXML
