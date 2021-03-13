@@ -11,7 +11,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import poo2.SistemaBanco.Classes.Cartao;
 import poo2.SistemaBanco.Classes.Convenios;
 import poo2.SistemaBanco.Classes.Usuario;
 
@@ -41,14 +40,9 @@ public class ConnectionDB {
 	
 	public static void initDB() {
 
-		for (Usuario u : consumeAPI(consultAPI()))
+		for (Usuario u : consumeAPI(consultAPI())) {
 			new UsuarioDAO().persist(u);
-
-		Cartao c = new Cartao("12346451561", "17/25", "123", 254.00, 400.00);
-		new CartaoDAO().persist(c);
-		
-		Usuario u = new Usuario("a", "a", "qwe", "qwe", "qwe", "qwe", "qwe", "qwe", c);
-		new UsuarioDAO().persist(u);
+		}
 		
 		Convenios a = new Convenios("amil");
 		new ConveniosDAO().persist(a);
@@ -62,9 +56,6 @@ public class ConnectionDB {
 		new ConveniosDAO().persist(e);
 		Convenios f = new Convenios("unimed");
 		new ConveniosDAO().persist(f);
-		
-		u.getConvenio().add(e);
-		new UsuarioDAO().persist(u);
 	
 	}
 
@@ -77,11 +68,10 @@ public class ConnectionDB {
 				lineIndex++;
 				line = users.get(lineIndex);
 				String password = processJSONLine(line);
-				
-				Cartao ct = new Cartao("6666666666666", "06/26", "666", 30.00, 200.00);
-				new CartaoDAO().persist(ct);
-				
-				Usuario user = new Usuario(username, password, "nome", "sobrenome", "data", "endereco", "cidade", "email", ct);
+				lineIndex++;
+				line = users.get(lineIndex);
+			
+				Usuario user = new Usuario(username, password, "nome", "sobrenome", "data", "endereco", "cidade", "email");
 				result.add(user);
 			}
 		}

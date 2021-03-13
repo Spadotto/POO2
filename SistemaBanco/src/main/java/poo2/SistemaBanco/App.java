@@ -6,6 +6,7 @@ import javafx.stage.Stage;
 public class App extends Application {
     
     private static Stage stage;
+	private static Thread connection;
 
 	@Override
 	public void start(Stage stge) {
@@ -14,6 +15,11 @@ public class App extends Application {
 		changeResizable();
 		stage.setTitle("Banco");
 		stage.show();
+		connection.start();
+	}
+	
+	public static void setConnection(Thread connection) {
+		App.connection = connection;
 	}
 
 	public static void setRoot(String fxml) {

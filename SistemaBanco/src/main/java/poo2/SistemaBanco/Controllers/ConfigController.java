@@ -1,6 +1,5 @@
 package poo2.SistemaBanco.Controllers;
 
-import javax.persistence.EntityManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -10,7 +9,6 @@ import poo2.SistemaBanco.App;
 import poo2.SistemaBanco.FXMLUtil;
 import poo2.SistemaBanco.Classes.Usuario;
 import poo2.SistemaBanco.DataBase.CartaoDAO;
-import poo2.SistemaBanco.DataBase.ConnectionDB;
 import poo2.SistemaBanco.DataBase.UsuarioDAO;
 
 public class ConfigController {
@@ -96,22 +94,20 @@ public class ConfigController {
 			return;
 		}
 		
-		EntityManager em = ConnectionDB.getEntityManager();
-		em.getTransaction().begin();
-		Usuario person = new Usuario();
-		person.setCpf(cpf);
-		person.setNome(nome);
-		person.setSobrenome(sobrenome);
-		person.setCartao(user.getCartao());
-		person.setCidade(cidade);
-		person.setDataNasc(dataNasc);
-		person.setEmail(email);
-		person.setEndereco(endereco);
-		person.setSenha(user.getSenha());
-		person.setConvenios(user.getConvenio());
-		em.getTransaction().commit();
+
+		user.setNome(nome);
+		new UsuarioDAO().persist(user);
+		user.setSobrenome(sobrenome);
+		new UsuarioDAO().persist(user);
+		user.setCidade(cidade);
+		new UsuarioDAO().persist(user);
+		user.setDataNasc(dataNasc);
+		new UsuarioDAO().persist(user);
+		user.setEmail(email);
+		new UsuarioDAO().persist(user);
+		user.setEndereco(endereco);
+		new UsuarioDAO().persist(user);
 		
-		user = person;
 		Alert alert = poo2.SistemaBanco.AlertUtil.info("Alerta", "Alerta", "Cadastro atualizado com sucesso");
 		alert.showAndWait();
 		

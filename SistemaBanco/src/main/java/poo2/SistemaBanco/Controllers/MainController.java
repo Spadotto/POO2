@@ -15,7 +15,6 @@ import poo2.SistemaBanco.Classes.Usuario;
 public class MainController {
 	
 	private Usuario user;
-	private Usuario c;
 	private Cartao d;
 	
 	@FXML
@@ -70,7 +69,7 @@ public class MainController {
     void AbrirConfigs(ActionEvent event) throws IOException {
     	App.setRoot("configs");
     	ConfigController controller = FXMLUtil.getConfigController();
-		controller.UserInfo(c);
+		controller.UserInfo(user);
     }
     
     @FXML
@@ -95,7 +94,7 @@ public class MainController {
     		App.setRoot("cartao");
 			CartaoController controller = FXMLUtil.getCartaoController();
 			controller.setNumConta(d);
-			controller.setDados(c);
+			controller.setDados(user);
     	}
 		
     }
@@ -113,7 +112,6 @@ public class MainController {
     	this.user = u;
     	lblUsuario.setText(user.getNome());
 		confidence.setText(user.getCpf());
-		c = user;
 		d = user.getCartao();
 		String number = String.format("%.2f", d.getSaldo());
 		String number2 = String.format("%.2f", d.getLimite() - d.getSaldo());

@@ -6,6 +6,7 @@ import javax.persistence.OneToOne;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 
 @Entity
 public class Usuario {
@@ -20,10 +21,10 @@ public class Usuario {
 	private String cidade;
 	private String email;
 	
-	@OneToOne
+	@OneToOne(fetch = FetchType.EAGER)
 	private Cartao cartao;
 	
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	private List<Convenios> convenios;
 	
 	public Usuario(String cpf, String senha, String nome, String sobrenome, String dataNasc, String endereco, String cidade, String email, Cartao cartao) {
@@ -50,6 +51,7 @@ public class Usuario {
 		this.endereco = endereco;
 		this.cidade = cidade;
 		this.email = email;
+		this.convenios = new ArrayList<>();
 	}
 	
 	public Usuario(String cpf, String senha, String nome, Cartao cartao) {
@@ -58,12 +60,14 @@ public class Usuario {
 		this.senha = senha;
 		this.nome = nome;
 		this.cartao = cartao;
+		this.convenios = new ArrayList<>();
 	}
 	
 	public Usuario(String cpf, String senha) {
 		super();
 		this.cpf = cpf;
 		this.senha = senha;
+		this.convenios = new ArrayList<>();
 	}
 
 	public Usuario() {

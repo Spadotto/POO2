@@ -43,19 +43,20 @@ public class ConvController {
 	private void UpdateConv() {
 		if (user == null) {
 			AlertUtil.error("Erro", "Erro", "Não foi possível encontrar o usuario!");
-			return;
 		}
 		List<String> userconvs = new ArrayList<>();
 		for (Convenios g : user.getConvenio())
 			userconvs.add(g.getConvenio());
 		userList.setItems((FXCollections.observableList(userconvs)));
-
+	
 		if (user.getConvenio().isEmpty()) {
 			remov.setDisable(true);
 		} else {
 			userList.getSelectionModel().select(0);
 			remov.setDisable(false);
+			
 		}
+		
 	}
 
 	public void UpdateConvs(Usuario user) {

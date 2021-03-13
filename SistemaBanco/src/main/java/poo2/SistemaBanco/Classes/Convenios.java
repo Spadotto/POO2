@@ -14,10 +14,6 @@ public class Convenios {
 		this.convenio = convenio;
 	}
 	
-	public Convenios() {
-		
-	}
-
 	public String getConvenio() {
 		return convenio;
 	}
